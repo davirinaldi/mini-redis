@@ -39,8 +39,9 @@ OK
 
 ```
 src/
-├── server.ts      # TCP server, connection management
+├── server.ts      # TCP server, connection management, graceful shutdown
 ├── parser.ts      # RESP protocol parser
+├── serializer.ts  # RESP response serializer
 └── commands.ts    # Command execution (SET, GET, DEL, PING, ECHO)
 ```
 
@@ -48,6 +49,7 @@ src/
 - **Protocol:** RESP (Redis Serialization Protocol)
 - **Storage:** In-memory `Map<string, string>`
 - **No external dependencies**
+- **Graceful shutdown:** Clean exit on SIGINT with connection cleanup
 
 ## Roadmap
 
